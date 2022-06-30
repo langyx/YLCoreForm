@@ -2,10 +2,14 @@ import XCTest
 @testable import YLCoreForm
 
 final class YLCoreFormTests: XCTestCase {
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct
-        // results.
-        XCTAssertEqual(YLCoreForm().text, "Hello, World!")
+    func testViewModel_answer() throws {
+        let answers = [YLCFAnswer(title: "yes"), YLCFAnswer(title: "no")]
+        let ylcFormVM = YLCFormViewModel(questions: [
+            YLCFQuestion(title: "Are you good ?", answers: answers),
+            YLCFQuestion(title: "Are you bad ?", answers: answers)
+        ])
+        ylcFormVM.answerCurrentQuestion(answers.first!)
+        XCTAssertTrue(ylcFormVM.currentQuestionIndex == 1)
+        
     }
 }
