@@ -1,3 +1,3 @@
 # YLCoreForm
 
-A description of this package.
+Base for Form creation package
